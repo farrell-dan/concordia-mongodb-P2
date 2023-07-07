@@ -1,19 +1,45 @@
-# MongoDB - Day 2
+# Project- Ticket Buying Widget
 
-Today you are going to take an app that "works" without a database, and integrate a database into it.
+---
 
-Remember the Ticket Booker? 😬 (Reducer workshop)
+In today's workshop, we will be working on a ticket-buying widget, that has been created for buying specific seats at a concert (or hockey game, or airplane). Here's a GIF of the flow:
+
+![demo flow](./lecture/assets/demo.gif)
+
+The frontend of our "Ticket-buying widget" is fully functional. If you are curious about the frontend, then a little information for you :) The frontend has been created using the a framework called`React` ( if you want to know more about react, you can go to [reducers](https://react.dev/). 
+_**BUT THE GOOD PART IS, YOU WILL BE LEARNING REACT AFTER THIS PROJECT. SO DONT WORRY IF YOU ARE NOT ABLE TO FIGURE IT OUT
+FOR NOW, IT IS ONLY USED TO DISPLAY THE FRONTEND, YOU ARE NOT SUPPOSED TO WORK FOR THIS PART**_
+
+
+The issue that we are dealing with is that our application is `without a database`, and our job is to integrate a database into it.
 
 Currently, the backend is generating the seats for the theater. Let's migrate that to a database: MongoDB.
 
 ## Setup
 
-> **Important!** The setup for this workshop is a little different. You'll still need 2 terminals but you won't have to navigate anywhere. The server and the client aren't separated from each other!
+ You'll need 2 active terminals to be able to run this project.
 
-1. `yarn install` to get all of the dependencies.
-2. Open a split terminal (or two terminals, whatever you prefer).
-3. In one terminal type `yarn start:client` to start the FE app.
-4. In the other terminal type `yarn start:server` to start the BE app.
+Add the `proxy` into the `client`'s `package.json` file:
+
+```json
+    "proxy": "http://localhost:5678"
+```
+
+### The Frontend (website):
+
+1. Open a terminal.
+2. Navigate to the `client` folder by using `cd client`.
+3. Install the dependencies with `yarn install`.
+4. Boot React with `yarn start:client`.
+---
+### The Backend (server):
+
+1. Open a **new** terminal (you can use a split terminal if you want).
+2. Navigate to the `server` folder by using `cd server`.
+3. Install the dependencies with `yarn install`.
+4. Boot the server with `yarn start:server`.
+
+After following these steps, you should have 2 terminals. One should be running React, and the other should be running the server.
 
 ---
 
@@ -62,26 +88,8 @@ Both are viable and it really depends on what will be done with the data. It's t
 
 ---
 
-<center>🟡 - Minimally complete workshop (75%) - 🟡</center>
-
----
-
-## Exercise 5 - Uh oh! Incoming requirements
-
-There is talk of creating an admin panel to manage the bookings. The FE is not built yet, but it would be good to enable the required functionality now in the BE.
-
-Administrators would like to be able to
-
-1. view the bookings. _that's already done (exercise 1)_
-2. delete a booking, i.e. make the seat available for purchase once more.
-3. update the name or email of customer.
-
-You will need to test this implementation with Insomnia.
-
-You could always try to improve the FE as well. There some benefit/difficulty in adding features to code you didn't write...
-
----
-
 <center>🟢 - Complete workshop (100%) - 🟢</center>
 
 ---
+
+
