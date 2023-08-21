@@ -1,4 +1,17 @@
-# Project- Ticket Buying Widget
+# Mongodb- P2
+
+## 🦊 Pre-lecture
+
+There is no pre-lecture for this workshop.
+
+---
+
+## 🦉 Lecture
+
+- [Lecture 1 | Special Topics](./lecture/lecture-1-special-topics.md)
+
+---
+
 
 ---
 
