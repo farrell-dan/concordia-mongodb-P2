@@ -12,12 +12,9 @@ There is no pre-lecture for this workshop.
 
 ---
 
-
----
-
 In today's workshop, we will be working on a ticket-buying widget, that has been created for buying specific seats at a concert (or hockey game, or airplane). Here's a GIF of the flow:
 
-![demo flow](./lecture/assets/demo.gif)
+![demo flow](./_lecture/assets/demo.gif)
 
 The frontend of our "Ticket-buying widget" is fully functional. If you are curious about the frontend, then a little information for you :) The frontend has been created using the a framework called`React` ( if you want to know more about react, you can go to [reducers](https://react.dev/). 
 _**BUT THE GOOD PART IS, YOU WILL BE LEARNING REACT AFTER THIS PROJECT. SO DONT WORRY IF YOU ARE NOT ABLE TO FIGURE IT OUT
