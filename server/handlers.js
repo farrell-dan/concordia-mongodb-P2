@@ -26,14 +26,14 @@ const getSeats = async (request, response) => {
     } client.close()
 };
 
-const bookSeat = async (request,response) => {
+const bookSeat = async (request, response) => {
     const client = new MongoClient(MONGO_URI, options);
     
     try {
     
         await client.connect();
         const db = client.db("MongoDB-P2");
-        const theaterCollection = db.collection("Theatre");
+        const theaterCollection = db.collection("Theater");
         const _id = request.params._id;
 
         const existingSeat = await theaterCollection.findOne({ _id});
@@ -64,7 +64,11 @@ const bookSeat = async (request,response) => {
                  });
             }
         } else {
-            return { success: false, message: "Seat not found." };
+            response.status(400).json({
+                   status: 400,
+                   _id,
+                   message: "Seat could not be booked.",
+                 });;
         }
     } catch (error) {
         console.error("Error booking seat:", error);
@@ -78,4 +82,39 @@ const bookSeat = async (request,response) => {
     }
 };
 
-module.exports = { getSeats, bookSeat };
+const updateUser = async (seatId, fullName, email) => {
+  const client = new MongoClient(MONGO_URI, options);
+
+  try {
+    await client.connect();
+    const db = client.db("MongoDB-P2");
+    const seatCollection = db.collection("Theater");
+
+    const existingSeat = await seatCollection.findOne({ _id: seatId });
+
+    if (existingSeat) {
+        const result = await seatCollection.updateOne(
+          { _id: seatId },
+          {
+            $set: {
+              isBooked: true,
+              fullName: fullName,
+              email: email,
+            },
+          });
+          return{  success: true ,message: "User information added" };
+        } else {
+          return { success: false, message: "User information not added" };
+        }
+  } catch (error) {
+    console.error("Error adding information:", error);
+    return {
+      success: false,
+      message: "An error occurred while booking the seat.",
+    };
+  } finally {
+    client.close();
+  }
+};
+
+module.exports = { getSeats, bookSeat, updateUser };

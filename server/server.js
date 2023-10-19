@@ -2,7 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 
 const { batchImport } = require("./batchImport");
-const { getSeats, bookSeat } = require("./handlers")
+const { getSeats, bookSeat, updateUser } = require("./handlers")
 
 const PORT = 5678;
 
@@ -13,7 +13,7 @@ app.use(morgan('dev'));
 app.use(require('./routes'));
 
 app.get("/api/seat-availability", getSeats)
-app.post("/api/book-seat/:_id", bookSeat);
+app.patch("/api/book-seat/:_id", bookSeat);
 
 const server = app.listen(PORT, () => {
   console.info('🌍 Listening on port ' + server.address().port);
