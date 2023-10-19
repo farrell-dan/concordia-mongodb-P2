@@ -25,7 +25,7 @@
         "react-error-overlay": "6.0.9"
     },
     "scripts": {
-        "start:client": "react-scripts start",
+        "start:client": "react-scripts --openssl-legacy-provider start",
         "build": "react-scripts build",
         "test": "react-scripts test --env=jsdom",
         "eject": "react-scripts eject"
